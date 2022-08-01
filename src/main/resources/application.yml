@@ -1,0 +1,74 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cinema
+    username: postgres
+    password: 1003
+    hikari:
+      auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        show_sql: true
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant_path_matcher
+  # Handle files config
+  servlet:
+    multipart:
+      enabled: true
+      # Threshold after which files are written to disk.
+      file-size-threshold: 2KB
+      # Max file size.
+      max-file-size: 2MB
+      # Max Request Size.
+      max-request-size: 3MB
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: examle@gmail.com
+    password: qdzxktifufsclath
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+springdoc:
+  api-docs:
+    path: /openapi/api-docs
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /swagger/swagger-ui.html
+    with-credentials: off
+
+#  main:
+#    lazy-initialization: on
+
+server:
+  servlet:
+    context-path: /api/v1/disney
+  error:
+    include-message: always
+
+jwt:
+  secret: secret
+  expiration: 3600
+
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        sql: DEBUG
+#        type: TRACE
+#      springframework:
+#        transaction:
+#          interceptor: TRACE
+#        orm:
+#          jpa: DEBUG
+
